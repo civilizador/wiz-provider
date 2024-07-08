@@ -1,0 +1,37 @@
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+    cert-manager.io/cluster-issuer: "letsencrypt-dev"
+  hosts:
+    - host: auth.gaze.ooo
+      paths:
+        - path: "/"
+          pathType: Prefix
+          backend:
+            service:
+              name: keycloak
+              port:
+                number: 8080
+  tls:
+    - hosts:
+        - auth.gaze.ooo
+      secretName: auth-gaze-tls
+
+service:
+  type: ClusterIP
+
+keycloak:
+  persistence:
+    deployPostgres: true
+    dbVendor: postgres
+  replicas: 1
+  extraArgs: "-Dkeycloak.frontendUrl=https://auth.gaze.ooo/auth/"
+  cors: true
+  corsAllowedOrigins: ["https://auth.gaze.ooo", "http://localhost:3000"]
+  username: nVbqq342gSqa42democr
+  password: scribing42democraCy60imBginary07reappear28blot2
+
+postgresql:
+  image:
+    tag: 15

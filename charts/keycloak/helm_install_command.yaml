@@ -1,0 +1,22 @@
+helm repo add codecentric https://codecentric.github.io/helm-charts
+helm repo update
+
+helm upgrade --install keycloak codecentric/keycloak \
+  --namespace gaze-backend-dev \
+  --set ingress.enabled=true \
+  --set ingress.annotations."kubernetes\.io/ingress\.class"=gce \
+  --set ingress.annotations."cert-manager\.io/cluster-issuer"="letsencrypt-dev" \
+  --set ingress.hosts[0].host=auth.gaze.ooo \
+  --set ingress.hosts[0].paths[0].path="/" \
+  --set ingress.hosts[0].paths[0].pathType=Prefix \
+  --set ingress.hosts[0].paths[0].backend.service.name=keycloak \
+  --set ingress.hosts[0].paths[0].backend.service.port.number=8080 \
+  --set ingress.tls[0].hosts[0]=auth.gaze.ooo \
+  --set ingress.tls[0].secretName=auth-gaze-tls \
+  --set service.type=ClusterIP \
+  --set keycloak.persistence.deployPostgres=true \
+  --set keycloak.persistence.dbVendor=postgres \
+  --set postgresql.image.tag=15 \
+  --set keycloak.replicas=1 \
+  --set keycloak.username=nVbqq342gSqa42democr \
+  --set keycloak.password=scribing42democraCy60imBginary07reappear28blot2

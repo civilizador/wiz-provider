@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: keycloak-ingress
+  namespace: gaze-backend-dev
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-dev"
+    kubernetes.io/ingress.class: gce
+spec:
+  tls:
+  - hosts:
+    - auth.gaze.ooo
+    secretName: auth-gaze-tls
+  rules:
+  - host: auth.gaze.ooo
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: keycloak-http
+            port:
+              number: 80
