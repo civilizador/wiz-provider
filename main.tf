@@ -1,5 +1,5 @@
-module "cloud_config_rule" {
-  source = "./modules/cloud_config_rule"
+module "wiz_cloud_config_rule" {
+  source = "./modules/wiz_cloud_config_rule"
 
   cloud_config_rule_name                    = var.cloud_config_rule_name
   cloud_config_rule_description             = var.cloud_config_rule_description
@@ -22,7 +22,7 @@ module "cloud_config_rule" {
 
 # cicd_scan_policy
 
-module "cicd_scan_policy" {
+module "wiz_cicd_scan_policy" {
   source = "./modules/cicd_scan_policy"
 
   cicd_scan_policy_iac_name                    = var.cicd_scan_policy_iac_name
@@ -54,7 +54,7 @@ module "cicd_scan_policy" {
 }
 
 # Jira integration - Create Jira ticket
-module "jira_integration" {
+module "wiz_jira_integration" {
   source = "./modules/jira_integration"
 
   integration_jira_name              = var.integration_jira_name
