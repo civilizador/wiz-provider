@@ -23,7 +23,7 @@ module "wiz_cloud_config_rule" {
 # cicd_scan_policy
 
 module "wiz_cicd_scan_policy" {
-  source = "./modules/cicd_scan_policy"
+  source = "./modules/wiz_cicd_scan_policy"
 
   cicd_scan_policy_iac_name                    = var.cicd_scan_policy_iac_name
   cicd_scan_policy_iac_description             = var.cicd_scan_policy_iac_description
@@ -54,8 +54,8 @@ module "wiz_cicd_scan_policy" {
 }
 
 # Jira integration - Create Jira ticket
-module "wiz_jira_integration" {
-  source = "./modules/jira_integration"
+module "wiz_integration_jira" {
+  source = "./modules/wiz_integration_jira"
 
   integration_jira_name              = var.integration_jira_name
   integration_jira_url               = var.integration_jira_url
