@@ -7,6 +7,14 @@ terraform {
   }
 }
 
+provider "wiz" {
+  alias                  = "default"
+  wiz_url                = var.wiz_url
+  wiz_auth_client_id     = var.wiz_auth_client_id
+  wiz_auth_client_secret = var.wiz_auth_client_secret
+  wiz_auth_audience      = "wiz-api"
+}
+
 resource "wiz_cloud_config_rule" "this" {
   name                    = var.cloud_config_rule_name
   description             = var.cloud_config_rule_description
