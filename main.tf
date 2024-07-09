@@ -1,7 +1,7 @@
 module "wiz_cloud_config_rule" {
   source = "./modules/wiz_cloud_config_rule"
   providers = {
-    wiz = "axtonGrams/wiz"
+    wiz = "axtongrams/wiz"
   }
   cloud_config_rule_name                    = var.cloud_config_rule_name
   cloud_config_rule_description             = var.cloud_config_rule_description
@@ -27,7 +27,7 @@ module "wiz_cloud_config_rule" {
 module "wiz_cicd_scan_policy" {
   source = "./modules/wiz_cicd_scan_policy"
   providers = {
-    wiz = "axtonGrams/wiz"
+    wiz = "axtongrams/wiz"
   }
   cicd_scan_policy_iac_name                    = var.cicd_scan_policy_iac_name
   cicd_scan_policy_iac_description             = var.cicd_scan_policy_iac_description
@@ -61,7 +61,7 @@ module "wiz_cicd_scan_policy" {
 module "wiz_integration_jira" {
   source = "./modules/wiz_integration_jira"
   providers = {
-    wiz = "axtonGrams/wiz"
+    wiz = "axtongrams/wiz"
   }
   integration_jira_name              = var.integration_jira_name
   integration_jira_url               = var.integration_jira_url
