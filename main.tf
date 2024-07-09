@@ -1,6 +1,8 @@
 module "wiz_cloud_config_rule" {
   source = "./modules/wiz_cloud_config_rule"
-
+  providers = {
+    wiz = "AxtonGrams/wiz"
+  }
   cloud_config_rule_name                    = var.cloud_config_rule_name
   cloud_config_rule_description             = var.cloud_config_rule_description
   cloud_config_rule_target_native_types     = var.cloud_config_rule_target_native_types
@@ -24,7 +26,9 @@ module "wiz_cloud_config_rule" {
 
 module "wiz_cicd_scan_policy" {
   source = "./modules/wiz_cicd_scan_policy"
-
+  providers = {
+    wiz = "AxtonGrams/wiz"
+  }
   cicd_scan_policy_iac_name                    = var.cicd_scan_policy_iac_name
   cicd_scan_policy_iac_description             = var.cicd_scan_policy_iac_description
   cicd_scan_policy_iac_count_threshold         = var.cicd_scan_policy_iac_count_threshold
@@ -56,7 +60,9 @@ module "wiz_cicd_scan_policy" {
 # Jira integration - Create Jira ticket
 module "wiz_integration_jira" {
   source = "./modules/wiz_integration_jira"
-
+  providers = {
+    wiz = "AxtonGrams/wiz"
+  }
   integration_jira_name              = var.integration_jira_name
   integration_jira_url               = var.integration_jira_url
   integration_jira_username          = var.integration_jira_username
