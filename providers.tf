@@ -7,8 +7,8 @@ terraform {
       version = ">= 3.50.0"  # Specify the version constraint for the Google provider
     }
     wiz = {
-      source = "AxtonGrams/wiz"
-      version = "1.1.8"
+      source = "hashicorp/wiz"
+      version = ">=1.0.0"
     }
   }
 }
