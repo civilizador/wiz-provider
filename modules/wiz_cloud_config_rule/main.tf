@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    wiz = {
+      source = "AxtonGrams/wiz"
+      version = "1.1.8"
+    }
+  }
+}
+
 resource "wiz_cloud_config_rule" "this" {
   name                    = var.cloud_config_rule_name
   description             = var.cloud_config_rule_description
