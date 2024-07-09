@@ -1,8 +1,5 @@
 module "wiz_cloud_config_rule" {
   source = "./modules/wiz_cloud_config_rule"
-  providers = {
-    wiz = wiz.default
-  }
   cloud_config_rule_name                    = var.cloud_config_rule_name
   cloud_config_rule_description             = var.cloud_config_rule_description
   cloud_config_rule_target_native_types     = var.cloud_config_rule_target_native_types
