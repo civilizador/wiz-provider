@@ -1,3 +1,20 @@
+terraform {
+  required_providers {
+    wiz = {
+      source = "AxtonGrams/wiz"
+      version = "1.1.8"
+    }
+  }
+}
+
+provider "wiz" {
+  alias                  = "default"
+  wiz_url                = var.wiz_url
+  wiz_auth_client_id     = var.wiz_auth_client_id
+  wiz_auth_client_secret = var.wiz_auth_client_secret
+  wiz_auth_audience      = "wiz-api"
+}
+
 resource "wiz_integration_jira" "this" {
   name          = var.integration_jira_name
   jira_url      = var.integration_jira_url
